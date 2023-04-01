@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-^ir2+j-$vu$g3&=2qii9h_ku-p!&(^zj)x%oc7$f63j*t7dap@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,19 +79,19 @@ WSGI_APPLICATION = 'storeapi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': str(os.path.join('onlineShoppro')),
-        'USER': 'mydb_user',
-        'PASSWORD': 'your_password',
-        'HOST': 'localhost',
-        'PORT': '3306',
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': str(os.path.join('onlineShoppro')),
+#         'USER': 'mydb_user',
+#         'PASSWORD': 'your_password',
+#         'HOST': 'localhost',
+#         'PORT': '3306',
 
 
 
-    }
-}
+#     }
+# }
 
 
 # Password validation
@@ -129,6 +129,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+MEDIA_URLS ='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
