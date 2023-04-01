@@ -1,13 +1,13 @@
 {
     "builds": [{
-        "src": "OnlineShopBackend/storeapi/wsgi.py",
+        "src": "storeapi/wsgi.py",
         "use": "@ardnt/vercel-python-wsgi",
         "config": { "maxLambdaSize": "15mb" }
     }],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "OnlineShopBackend/storeapi/wsgi.py"
+            "dest": "storeapi/wsgi.py"
         }
     ]
 }
