@@ -1,6 +1,6 @@
 {
     "builds": [{
-        "src": "storeapi/wsgi.py",
+        "src": "storeapi/storeapi/wsgi.py",
         "use": "@ardnt/vercel-python-wsgi",
         "config": { "maxLambdaSize": "15mb" }
     } ,
@@ -16,7 +16,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "storeapi/wsgi.py"
+            "dest": "storeapi/storeapi/wsgi.py"
         }
     ]
 }
