@@ -79,19 +79,33 @@ WSGI_APPLICATION = 'storeapi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': str(os.path.join('onlineShoppro')),
+        'USER': 'mydb_user',
+        'PASSWORD': 'your_password',
+        'HOST': 'localhost',
+        'PORT': '3306',
+
+
+
+    }
+}
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': str(os.path.join('onlineShoppro')),
-#         'USER': 'mydb_user',
-#         'PASSWORD': 'your_password',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'onlinestore',
+#         'USER': 'davidkayode',
+#         'PASSWORD': 'Akinfenwa50',
+#         'HOST': 'onlinestore.clpflv8uap0q.eu-north-1.rds.amazonaws.com',
+#         'PORT': '5432',
 
 
 
 #     }
 # }
+
 
 
 # Password validation
@@ -146,3 +160,7 @@ EMAIL_HOST_PASSWORD='akinfenwa1993@'
 EMAIL_USE_TLS=True
 EMAIL_USE_SSL=False
  
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100,
+}

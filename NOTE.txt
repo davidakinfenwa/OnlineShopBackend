@@ -11,3 +11,10 @@ EMAIL_USE_SSL=False
 
 
  python.exe -m pip install drf-spectacular
+
+
+ #To install PostgreSQL
+Connecting to PostgreSQL
+--Add this two packages---  
+python.exe -m pip install psycopg2
+ python.exe -m pip install psycopg2-binary

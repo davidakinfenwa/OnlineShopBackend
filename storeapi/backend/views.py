@@ -8,17 +8,23 @@ from .serializers import OrderSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
+from rest_framework.pagination import PageNumberPagination    
 
 
 # Create your views here.
 
-
+def get_paginated_queryset_response(qs,request):
+        pagination=PageNumberPagination()
+        pagination.page_size=2
+        paginated_qs=pagination.paginate_queryset(qs,request)
+        serializers = OrderSerializer(paginated_qs, many=True)
+        return pagination.get_paginated_response(  {'message': 'Order Fetch Succesully','data': serializers.data, })
 class OrderView(APIView):
     def get(self, request):
         try:
             orders = Order.objects.all()
             serializer = OrderSerializer(orders, many=True)
-            return Response({'data': serializer.data, 'message': 'Order Fetch Succesully'}, status=status.HTTP_200_OK)
+            return get_paginated_queryset_response(orders, request)
         except Exception as e:
             print(e)
             return Response({'data': serializer.error_messages, 'message': 'Expection Found While fetching'}, status=status.HTTP_404_NOT_FOUND)
